@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="utf-8">
+		<title>Editor de texto</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+		<meta name="viewport" content="device-width, initial-scale=1.0">
+	</head>
+	<body>
+		<header>
+			<h1 class="header-title">Editor de texto simples</h1>
+		</header>
+
+		<div class="text-editor">
+			<form>
+				<button type="button" data-style="textColor" name="disabled" id="parent"data-css="color">A</button>
+				<button type="button" data-style="fontWeight" name="active" data-css="bold">B</button>
+				<button type="button" data-style="fontStyle" name="active" data-css="italic">I</button>
+				<button type="button" data-style="textDecoration" name="active" data-css="underline">U</button>
+					
+			</form>
+			<iframe id='output' name="textField" >
+			</iframe>
+		</div>
+
+
+			<script type="module" src="app.js"></script>
+			<script type="module" src="colorPicker.js"></script>
+			<script src="https://unpkg.com/vanilla-picker@2"></script>
+
+	</body>
+
+</html>
