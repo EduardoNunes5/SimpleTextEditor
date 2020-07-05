@@ -20,5 +20,6 @@ picker.onDone = function(color){
 };
 function dye(color){
 	textField.document.execCommand('forecolor', false, color.hex);
+        textField.focus();
 }
 
