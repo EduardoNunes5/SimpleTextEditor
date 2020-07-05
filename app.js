@@ -1,35 +1,35 @@
 class TextEditor{
-	constructor(buttons){
-		this.buttons = buttons;
+	constructor(buttonsId, textEditorId){
+		this.$buttons = document.querySelectorAll(buttonsId);
+		this.$textEditor = document.querySelector(textEditorId);
 	}
 
 	buttonHandler(){
-		Array.prototype.map.call( this.buttons, (btn) => {
+		Array.prototype.map.call( this.$buttons, (btn) => {
 			btn.addEventListener('click', ()=>{
 				if(btn.name === 'active'){
 					btn.classList.toggle('active');					
 				}
-				textField.document.execCommand('styleWithCSS', false, true);
-				textField.document.execCommand(btn.dataset.css, false, null);
-				textField.focus();
+				document.execCommand('styleWithCSS', false, true);
+				document.execCommand(btn.dataset.css, false, null);
+				this.$textEditor.focus();
 			})
 		})		
 	}
 	getSelectionStart() {
-		var node = textField.document.getSelection().anchorNode;
+		var node = document.getSelection().anchorNode;
    		return (node.nodeType == 3 ? node.parentNode : node);
 	}
 
 	cursorClickHandler(){
-		document.querySelector('iframe').contentDocument.addEventListener('click', ()=>this.clickhandler());
-		document.querySelector('iframe').contentDocument.addEventListener('keydown', () => this.clickhandler());
+		this.$textEditor.addEventListener('click', ()=> setTimeout(()=>this.clickhandler(),1000));
+		this.$textEditor.addEventListener('keydown', () => setTimeout(()=>this.clickhandler(),1000));
 	}
 
 	clickhandler(){
 		let cursorNode = this.getSelectionStart();
-
-		Array.prototype.map.call(this.buttons, btn=>{
-			if(cursorNode.nodeName ==='BODY'){
+		Array.prototype.map.call(this.$buttons, btn=>{
+			if(cursorNode.nodeName ==='DIV'){
 				if(btn.className === 'active'){
 					btn.classList.toggle('active');
 				}
@@ -42,13 +42,8 @@ class TextEditor{
 		});
 
 	}
-
-
 }
 
-
-textField.document.designMode='On';
-const buttons = document.querySelectorAll('button')
-let textEditor = new TextEditor(buttons);
+let textEditor = new TextEditor('button', '#text-editor');
 textEditor.buttonHandler();
 textEditor.cursorClickHandler();

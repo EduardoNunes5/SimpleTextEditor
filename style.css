@@ -7,17 +7,17 @@
 
 header{
 	background: rgb(68, 15, 84);
-	height: 5em;
+	height: 6em;
 	margin-bottom: 3em;
 }
 
 body{
-	background: rgb(148, 107, 160);
+	background: black;
 }
 
 .header-title{
-	font-size: 2.0em;
-	line-height: 2.5em;
+	font-size: 1.5em;
+	line-height: 4em;
 	text-align: center;
 	color: rgb(217, 201, 221);
 }
@@ -47,7 +47,7 @@ form button{
 }
 
 .active{
-	background: rgb(95, 57, 107);
+	background: rgb(64, 34, 73);
 }
 
 button{
@@ -59,8 +59,14 @@ button{
 	border-radius: 10%;
 	margin-bottom: 0.5em;
 	color: white;
+	cursor: pointer;
 }
 
-button:hover{
-	background: rgb(130, 90, 160);
+.text-area{
+	width: 70%;
+	margin: auto;
+	height: 150px;
+	background: white;
+	padding: 0.2em;
+	border-radius: 3%;
 }

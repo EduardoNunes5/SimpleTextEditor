@@ -12,14 +12,16 @@ var picker = new Picker({
 picker.onChange = function(color) {
     parent.style.fontWeight='bold';
     parent.style.color = color.rgbaString;
-    dye(color);
 };
 
 picker.onDone = function(color){
 	dye(color);
 };
 function dye(color){
-	textField.document.execCommand('forecolor', false, color.hex);
-        textField.focus();
+	document.execCommand('forecolor', false, color.hex);
+	textEditor.focus();
 }
+
+
+const textEditor = document.querySelector('#text-editor');
 
